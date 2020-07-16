@@ -76,8 +76,15 @@ var res = "3" * "5";     // 곱셈 연산을 위해 두 문자열이 모두 숫�
 var not_a_number = 1 - "string";  // NaN
 ```
 
+<<<<<<< HEAD
 >NaN은 Not a Number의 축약형으로, 정의되지 않은 값이나 표현할 수 없는 값이라는 의미를 가집니다.<br/>
 이러한 NaN은 Number 타입의 값으로 0을 0으로 나누거나, 숫자로 변환할 수 없는 피연산자로 산술 연산을 시도하는 경우에 반환되는 읽기 전용 값입니다.
+=======
+<blockquote>NaN은 Not a Number의 축약형으로, 정의되지 않은 값이나 표현할 수 없는 값이라는 의미를 가집니다.<br/>
+이러한 NaN은 Number 타입의 값으로 0을 0으로 나누거나, 숫자로 변환할 수 없는 피연산자로 산술 연산을 시도하는 경우에 반환되는 읽기 전용 값입니다.</blockquote>
+
+<br/>
+>>>>>>> be8a7d1f0e4ce01d4411324da545b9c4b81aed64
 
 ### 숫자를 문자열로 반환
 
@@ -154,6 +161,7 @@ typeof null;      // object 타입
 
 <br/>
 
+<<<<<<< HEAD
 ## 2 - 6) 변수의 유효범위
 
 - 지역변수(local variable)
@@ -206,4 +214,6 @@ globalNum();  // 함수 globalNum()을 호출함.
 document.write("함수의 호출이 끝난 뒤 변수 num의 값은 " + num + "입니다."); // 10
 ```
 
+=======
+>>>>>>> be8a7d1f0e4ce01d4411324da545b9c4b81aed64
 ***
