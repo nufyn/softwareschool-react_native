@@ -42,15 +42,6 @@
 2. state hooks
 3. effect hooks
 
-### 6장. react VS react-native
-
-1. design
-2. 
-
-### 부록. 합성과 상속
-
-1. 합성
-2. 상속
-3. HOC(High-Order-Component)
+### 부록. react 관련 용어
 
 ***

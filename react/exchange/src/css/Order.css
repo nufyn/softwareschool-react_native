@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.Section {
+    margin-top: 2rem;
+    border-top: 1px solid #d9d9d9;
+    padding: 1rem 0;
+}
+.Section__Title h3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.Order__Head {
+    display: flex;
+}
+.Order__Type {
+    margin: 0 1rem;
+}
+.Order__Type p {
+    font-size: 1.4rem;
+    margin: 0;
+    cursor: pointer;
+    color: #333;
+}
+.Order__Type p.on {
+    text-decoration: underline;
+}
+
+
+
+.Order__Box .Order__Inner {
+    display: flex;
+}
+.Order__Box .Order__Inner > div {
+    flex: 1;
+}
