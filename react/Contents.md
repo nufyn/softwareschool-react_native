@@ -16,19 +16,18 @@
 
 ### 2장. components / props
 
-1. 클래스 콤포넌트
-2. 함수형 콤포넌트
-3. 제어 콤포넌트
--- input
--- input:file
--- textarea
--- select
-4. 고차콤포넌트(HOC)
+1. 클래스 컴포넌트
+2. 함수형 컴포넌트
 
 ### 3장. state / lifecycle 
 
 1. state
 2. lifecycle
+3. 제어 컴포넌트
+-- input
+-- input:file
+-- textarea
+-- select
 
 ### 4장. event / Conditional Rendering / Lists and key
 
@@ -52,5 +51,6 @@
 
 1. 합성
 2. 상속
+3. HOC(High-Order-Component)
 
 ***

@@ -1,14 +1,12 @@
 # 1장. jsx 소개
 
-***
-
 ## 1 - 1) jsx란
 
 jsx는 html도 아닌것이 javascript도 아닌것 같은 문법입니다.
 그 이유는 react에서 js를 직관적으로 보여주기 위해 html과 비슷한 xml로 확장시킨 문법이기 때문입니다.
 
 아래 변수 선언을 살펴봅시다.
-```javascript
+```JAVASCRIPT
 const element = <h1>Hello, world!</h1>;
 ```
 
@@ -22,7 +20,7 @@ React는 JSX 사용이 필수가 아니지만, 대부분의 사람은 JavaScript
 ### JSX에 표현식 포함하기
 아래 예시에서는 name이라는 변수를 선언한 후 중괄호로 감싸 JSX 안에 사용하였습니다.
 
-```javascript
+```JAVASCRIPT
 const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
 
@@ -31,7 +29,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-```javascript
+```JAVASCRIPT
 function formatName(user) {
   return user.firstName + ' ' + user.lastName;
 }
@@ -61,7 +59,7 @@ ReactDOM.render(
 컴파일이 끝나면, JSX 표현식이 정규 JavaScript 함수 호출이 되고 JavaScript 객체로 인식됩니다.
 
 즉, JSX를 if 구문 및 for loop 안에 사용하고, 변수에 할당하고, 인자로서 받아들이고, 함수로부터 반환할 수 있습니다.
-```javascript
+```JAVASCRIPT
 function getGreeting(user) {
   if (user) {
     return <h1>Hello, {formatName(user)}!</h1>;
@@ -74,12 +72,12 @@ function getGreeting(user) {
 
 ### JSX 속성 정의
 속성에 따옴표를 이용해 문자열 리터럴을 정의할 수 있습니다.
-```javascript
+```JAVASCRIPT
 const element = <div tabIndex="0"></div>;
 ```
 중괄호를 사용하여 어트리뷰트에 JavaScript 표현식을 삽입할 수도 있습니다.
 
-```javascript
+```JAVASCRIPT
 const element = <img src={user.avatarUrl}></img>;
 ```
 
@@ -94,7 +92,7 @@ _*JSX는 HTML보다는 JavaScript에 가깝기 때문에, React DOM은 HTML 어�
 
 const element = <img src={user.avatarUrl} />;
 JSX 태그는 자식을 포함할 수 있습니다.
-```javascript
+```JAVASCRIPT
 const element = (
   <div>
     <h1>Hello!</h1>
@@ -105,7 +103,7 @@ const element = (
 
 _*JSX는 주입 공격을 방지합니다. JSX에 사용자 입력을 삽입하는 것은 안전합니다._
 
-```javascript
+```JAVASCRIPT
 const title = response.potentiallyMaliciousInput;
 // 이것은 안전합니다.
 const element = <h1>{title}</h1>;
@@ -120,7 +118,7 @@ Babel은 JSX를 React.createElement() 호출로 컴파일합니다.
 
 다음 두 예시는 동일합니다.
 
-```javascript
+```JAVASCRIPT
 const element = (
   <h1 className="greeting">
     Hello, world!
@@ -135,7 +133,7 @@ const element = React.createElement(
 
 React.createElement()는 버그가 없는 코드를 작성하는 데 도움이 되도록 몇 가지 검사를 수행하며, 기본적으로 다음과 같은 객체를 생성합니다.
 
-```javascript
+```JAVASCRIPT
 // 주의: 다음 구조는 단순화되었습니다
 const element = {
   type: 'h1',
@@ -156,7 +154,7 @@ React를 사용할 때 JSX는 필수가 아닙니다. 빌드 환경에서 컴파
 각 JSX 엘리먼트는 React.createElement(component, props, ...children)를 호출하기 위한 문법 설탕입니다. 그래서 JSX로 할 수 있는 모든 것은 순수 JavaScript로도 할 수 있습니다.
 
 예를 들어 다음의 JSX로 작성된 코드는
-```javascript
+```JAVASCRIPT
 class Hello extends React.Component {
   render() {
     return <div>Hello {this.props.toWhat}</div>;
@@ -169,7 +167,7 @@ ReactDOM.render(
 );
 ```
 아래처럼 JSX를 사용하지 않은 코드로 컴파일될 수 있습니다.
-```javascript
+```JAVASCRIPT
 class Hello extends React.Component {
   render() {
     return React.createElement('div', null, `Hello ${this.props.toWhat}`);
@@ -185,7 +183,7 @@ ReactDOM.render(
 컴포넌트는 문자열이나 React.Component의 하위 클래스 또는 컴포넌트를 위한 일반 함수로 제공됩니다.
 React.createElement를 너무 많이 입력하는 것이 피곤하다면 짧은 변수에 할당하는 방법이 있습니다.
 
-```javascript
+```JAVASCRIPT
 const e = React.createElement;
 
 ReactDOM.render(
@@ -197,9 +195,9 @@ React.createElement를 짧은 변수에 할당하면 편리하게 JSX 없이 Rea
 
 #### jsx Fragment
 
-부모 자식 콤포넌트 사이에 기존의 html모습과 맞지않는 형태가 생겨날 수 있습니다.
+부모 자식 컴포넌트 사이에 기존의 html모습과 맞지않는 형태가 생겨날 수 있습니다.
 
-```javascript
+```JAVASCRIPT
 class Columns extends React.Component {
   render() {
     return (
@@ -232,14 +230,14 @@ class Table extends React.Component {
 
 엘리먼트는 react에서 가장 작은 단위입니다.
 
-```javascript
+```JAVASCRIPT
 const element = <h1>Hello, world</h1>;
 ```
 
 브라우저 DOM 엘리먼트와 달리 React 엘리먼트는 일반 객체이며(plain object) 쉽게 생성할 수 있습니다.
 
 #### 엘리먼트 렌더링
-```javascript
+```JAVASCRIPT
 <div id="root"></div>
 
 const element = <h1>Hello, world</h1>;
@@ -249,7 +247,7 @@ ReactDOM.render(element, document.getElementById('root'));
 React 엘리먼트는 불변객체입니다. 한번 렌더링된 엘리먼트는 실제로는 업데이트 되지 않습니다. 그렇다면 react는 어떻게 페이지를 업데이트 할까요?
 
 #### 엘리먼트 업데이트
-```javascript 
+```JAVASCRIPT 
 function tick() {
   const element = (
     <div>
@@ -268,6 +266,6 @@ setInterval(tick, 1000);
 
 _*여기서 주의할 점이 있습니다.
 components 와 element를 혼동하지 맙시다. 엘리먼트는 컴포넌트의 “구성 요소”입니다.
-다음장에서 콤포넌트에 대해서 알아봅시다._
+다음장에서 컴포넌트에 대해서 알아봅시다._
 
 ***

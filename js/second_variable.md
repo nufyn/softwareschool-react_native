@@ -1,6 +1,4 @@
-# 2장. 데이터와 변수
-
-***
+# 2장. 데이터(Data)와 변수(Variable)
 
 ## 2 - 1) javascripts 데이터 타입
 
@@ -13,7 +11,6 @@ _*C언어와 java는 데이터타입에 엄격하지만, 자바스크립트는 �
 <br>
 
 #### 데이터타입의 종류
-
 | 분류 | 데이터형 | 의미 |
 |---|:---:|:---:|
 | value | number | 수 |
@@ -31,7 +28,8 @@ _*C언어와 java는 데이터타입에 엄격하지만, 자바스크립트는 �
 
 ## 2 - 2) 숫자 데이터 타입
 
-```javascript
+#### number
+```JAVASCRIPT
 var firstNum = 10;     // 소수점을 사용하지 않은 표현
 
 var secondNum = 10.00; // 소수점을 사용한 표현
@@ -45,7 +43,8 @@ var fourthNum = 10e-6; // 0.00001
 
 ## 2 - 3) 문자열 데이터 타입
 
-```javascript
+#### string
+```JAVASCRIPT
 var firstStr = "이것도 문자열입니다.";      // 큰따옴표를 사용한 문자열
 
 var secondStr = '이것도 문자열입니다.';     // 작은따옴표를 사용한 문자열
@@ -59,18 +58,18 @@ var fourthStr = '나의 이름은 "홍길동"이야.' // 큰따옴표는 작은�
 
 ### 문자열 데이터 연산
 
-```javascript
+#### string
+```JAVASCRIPT
 var str1 = "Hello";
 var str2 = "World!";
 
 document.getElementById("result").innerHTML = (str1 + str2);
 ```
 
-<br/>
-
 ### 문자열과 숫자 데이터의 연산
 
-```javascript
+#### 문자열과 숫자
+```JAVASCRIPT
 var str = "lee jung";
 
 var num = 1;
@@ -101,11 +100,6 @@ var not_a_number = 1 - "string";  // NaN
 
 <br/>
 
-### 다른 데이터를 문자열로 반환
-
-- String()
-- toString()
-
 ### 날짜를 숫자 데이터로 반환
 
 | 메서드 | 설명 |
@@ -119,11 +113,17 @@ var not_a_number = 1 - "string";  // NaN
 
 >날짜데이터는 문자열과 숫자로 변환할 수 있는 유일한 데이터타입임
 
+### + 다른 데이터를 문자열로 반환
+
+- String()
+- toString()
+
 <br/>
 
 ## 2 - 4) 불리언 데이터 타입
 
-```javascript
+#### boolean
+```JAVASCRIPT
 var firstNum = 10;
 var secondNum = 11;
 
@@ -136,7 +136,8 @@ _*boolean 데이터 타입은 주로 비교연산자, 제어문과 함께 사용
 
 ## 2 - 5) 널 데이터 타입
 
-```javascript
+#### null
+```JAVASCRIPT
 var num;          // 초기화하지 않았으므로 undefined 값을 반환함.
 
 var str = null;   // object 타입의 null 값
@@ -148,9 +149,9 @@ typeof secondNum; // 정의되지 않은 변수에 접근하면 undefined 값을
 
 ## 2 - 6) 데이터 알아내기
 
-### typeof 연산자
+#### typeof 연산자
 
-```javascript
+```JAVASCRIPT
 typeof 10;        // number 타입
 
 typeof "문자열";  // string 타입
@@ -182,17 +183,16 @@ typeof null;      // object 타입
 ### 전역변수(global variable)
 
 전역변수는 함수 외부에서 선언된 변수입니다.
-
 프로그램중의 어느 곳에나 전역적으로 사용할 수 있으며 할당된 메모리는 프로그램(js에선 웹앱)이 종료되면 지워집니다. 
 
 #### 퀴즈) 값이 20인 num을 찾으시오
 
-```javascript
+```JAVASCRIPT
 var num = 10; // 전역 변수 num을 선언함.
 
 function globalNum() {
 
-    document.write("함수 내부에서 변수 num의 값은 " + num + "입니다.<br>"); // 10
+    document.write("함수 내부에서 변수 num의 값은 " + num + "입니다.<br>");
 
     num = 20; // 전역 변수 num의 값을 함수 내부에서 변경함.
 
@@ -200,20 +200,20 @@ function globalNum() {
 
 globalNum();  // 함수 globalNum()을 호출함.
 
-document.write("함수의 호출이 끝난 뒤 변수 num의 값은 " + num + "입니다."); // 20
+document.write("함수의 호출이 끝난 뒤 변수 num의 값은 " + num + "입니다.");
 ```
 
-```javascript
+```JAVASCRIPT
 var num = 10; // 전역 변수 num을 선언함.
 
 function globalNum() {
     var num = 20; // 전역 변수 num의 값을 함수 내부에서 변경함.
-    document.write("함수 내부에서 변수 num의 값은 " + num + "입니다.<br>"); // 20
+    document.write("함수 내부에서 변수 num의 값은 " + num + "입니다.<br>");
 }
 
 globalNum();  // 함수 globalNum()을 호출함.
 
-document.write("함수의 호출이 끝난 뒤 변수 num의 값은 " + num + "입니다."); // 10
+document.write("함수의 호출이 끝난 뒤 변수 num의 값은 " + num + "입니다.");
 ```
 
 ***

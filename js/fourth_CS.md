@@ -1,6 +1,4 @@
-# 4장. 제어문에 대해 알아보자
-
-***
+# 4장. 제어문(Control statement)
 
 ## 4 - 1) 제어문
 
@@ -26,8 +24,7 @@
 if 문은 표현식의 결과가 참(true)이면 주어진 실행문을 실행하며, 거짓(false)이면 아무것도 실행하지 않습니다.
 
 #### 예시
-
-```javascript
+```JAVASCRIPT
 var X = 1;
 
 if (X > 0) {
@@ -36,8 +33,7 @@ if (X > 0) {
 ```
 
 #### 퀴즈) 잘못된 곳을 찾으시오
-
-```javascript
+```JAVASCRIPT
 if (x = y) {
     document.write("두 변수 x와 y는 같습니다.");
 }
@@ -52,7 +48,7 @@ if 문과 같이 사용할 수 있는 else 문은 if 문의 표현식 결과가 
 
 #### 예문
 
-```javascript
+```JAVASCRIPT
 var X = -1;
 
 if (X > 0) {
@@ -68,7 +64,7 @@ else if 문은 if 문처럼 표현식을 설정할 수 있으므로, 중첩된 i
 하나의 조건문 안에서 if 문과 else 문은 단 한 번만 사용될 수 있습니다.
 하지만 else if 문은 여러 번 사용되어 다양한 조건을 설정할 수 있습니다.
 
-```javascript
+```JAVASCRIPT
 var X = 0;
 
 if (X > 0) {
@@ -82,7 +78,7 @@ if (X > 0) {
 
 ### switch 문
 
-```javascript 
+```JAVASCRIPT 
 var x = 10;
 
 switch (typeof x) {
@@ -103,7 +99,7 @@ switch (typeof x) {
 
 #### 퀴즈) 오늘이 무슨 요일인지 맞추시오
 
-```javascript
+```JAVASCRIPT
 var day = new Date().getDay(); // 오늘의 요일을 반환함. (일요일: 0 ~ 토요일: 6)
 
 switch (day) {
@@ -154,7 +150,7 @@ while 문 내부에 표현식의 결과를 변경하는 실행문이 존재하�
 
 ### for 문
 
-```javascript
+```JAVASCRIPT
 for (var i = 1; i < 10; i++) {
     document.write(i + " ");
 }
@@ -165,7 +161,7 @@ for (var i = 1; i < 10; i++) {
 for / in 문은 해당 객체의 모든 열거할 수 있는 프로퍼티(enumerable properties)를 순회할 수 있도록 해줍니다.
 
 ### 같은 기능을 하는 단순 for문과 for / in문
-```javascript
+```JAVASCRIPT
 var arr = [3, 4, 5];
 
 for (var i = 0; i < arr.length; i++) { // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
@@ -185,7 +181,7 @@ continue 문은 루프 내에서 사용하여 해당 루프의 나머지 부분�
 __보통 반복문 내에서 특정 조건에 대한 처리를 제외하고자 할 때 자주 사용됩니다.__
 
 #### 예시 
-```javascript
+```JAVASCRIPT
 var exceptNum = 3;
 
 for (var i = 0; i <= 100; i++) {
@@ -201,7 +197,7 @@ break 문은 루프 내에서 사용하여 해당 반복문을 완전히 종료�
 
 __즉, 루프 내에서 표현식의 판단 결과에 상관없이 반복문을 완전히 빠져나가고 싶을 때 사용합니다.__
 
-```javascript
+```JAVASCRIPT
 var lectures = ["html", "css", "자바스크립트", "php"];
 
 var topic = "자바스크립트";

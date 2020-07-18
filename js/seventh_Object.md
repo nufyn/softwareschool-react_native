@@ -1,7 +1,5 @@
 # 7장. 객체(Object)
 
-***
-
 ## 7 - 1) 객체란
 
 객체(object)란 실생활에서 우리가 인식할 수 있는 사물로 이해할 수 있습니다.
@@ -12,7 +10,7 @@ _*첫장에서 javascripts가 객체기반의 언어라고 말했습니다. 바�
 객체란 이름(name)과 값(value)으로 구성된 프로퍼티(property)의 정렬되지 않은 집합입니다.
 프로퍼티의 값으로 함수가 올 수도 있는데, 이러한 프로퍼티를 메서드(method)라고 합니다.
 
-```javascript
+```JAVASCRIPT
 var cat = "나비"; // 일반적인 변수의 선언
 
 // 객체도 많은 값을 가지는 변수의 하나임.
@@ -38,7 +36,7 @@ kitty.name   // 나비
 >위와 같은 방법으로 생성되어 메모리에 대입된 객체를 인스턴스(instance)라고 합니다.
 
 ### 리터럴을 이용한 방법
-```javascript
+```JAVASCRIPT
 var kitty = {
     name: "나비", // 프로퍼티네임은 식별자를 이용해도 되고 
     "family": "코리안 숏 헤어", //문자열을 이용해도 됨.
@@ -54,7 +52,7 @@ document.write("우리 집 새끼 고양이의 이름은 " + kitty.name + "이�
 객체를 생성하고 초기화할 수 있는 메서드를 생성자(constructor)라고 합니다.
 
 자바스크립트는 원시 타입을 위한 생성자를 미리 정의하여 제공합니다.
-```javascript
+```JAVASCRIPT
 var day = new Date(); // new 연산자를 사용하여 Date 타입의 객체를 생성함.
 
 document.write("올해는 " + day.getFullYear() + "년입니다.");
@@ -66,7 +64,7 @@ Object.create() 메서드는 지정된 프로토타입(prototype) 객체와 프�
 
 따라서 이 메서드를 이용하면 사용자가 프로토타입 객체를 직접 명시할 수 있으므로, 상당히 유용하게 사용됩니다.
 
-```javascript
+```JAVASCRIPT
 var obj = Object.create(null, {             // null 프로토타입을 사용하여 새로운 객체를 만들고
     x: { value: 100, enumerable: true },    // x좌표를 나타내는 열거할 수 있는 프로퍼티와
     y: { value: 200, enumerable: true }     // y좌표를 나타내는 열거할 수 있는 프로퍼티를 추가함.
@@ -84,7 +82,7 @@ Object.getPrototypeOf(obj); // 객체의 프로토타입을 반환해 줌.
 ## 7 - 3) 객체의 참조
 
 ### 객체의 프로퍼티 참조
-```javascript
+```JAVASCRIPT
 var person = {
     name: "홍길동",      // 이름 프로퍼티를 정의함.
     birthday: "030219",  // 생년월일 프로퍼티를 정의함.
@@ -101,7 +99,7 @@ person["name"] // 홍길동
 ```
 
 ### 객체의 메서드 참조
-```javascript
+```JAVASCRIPT
 var person = {
     name: "홍길동",
     birthday: "030219",
@@ -123,7 +121,7 @@ _*메서드를 참조할 때 메서드 이름 뒤에 괄호()를 붙이지 않�
 
 ## 7 - 4) 프로퍼티와 메서드의 생성
 
-```javascript
+```JAVASCRIPT
 function Dog(color, name, age) {
     this.color = color;
     this.name = name;

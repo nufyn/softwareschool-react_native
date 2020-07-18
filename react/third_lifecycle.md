@@ -7,7 +7,7 @@ __State는 props와 유사하지만__, 컴포넌트에 의해 완전히 제어�
 이전에 예시로 사용했던 엘리먼트렌더링 코드는 하나의 virtual dom의 동작 방법을 알아보기 위한 것이었습니다.
 
 #### 엘리먼트 렌더링
-```javascript
+```JAVASCRIPT
 function tick() {
   const element = (
     <div>
@@ -26,7 +26,7 @@ setInterval(tick, 1000);
 
 이제 우리는 저 1초 단위 시계 코드를 캡슐화하고 자체 동작이 가능한 컴포넌트로 만들어 재사용하는 것을 해볼 것입니다.
 
-#### 콤포넌트 렌더링
+#### 컴포넌트 렌더링
 ```JAVASCRIPT
 function Clock(props) {
   return (
@@ -47,9 +47,9 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-일단 엘리먼트를 콤포넌트 안에 넣어서 콤포넌트를 렌더링하는 것으로 캡슐화 했습니다.
+일단 엘리먼트를 컴포넌트 안에 넣어서 컴포넌트를 렌더링하는 것으로 캡슐화 했습니다.
 
-DOM을 구성하는 내용을 담은 콤포넌트인 함수와 콤포넌트를 렌더링하는 두 개의 함수로 1초마다 virtualDOM을 새롭게 받아 DOM을 업데이트하는 코드를 만들었습니다. 하지만 저희가 원하는 모습은 아래의 형태입니다.
+DOM을 구성하는 내용을 담은 컴포넌트인 함수와 컴포넌트를 렌더링하는 두 개의 함수로 1초마다 virtualDOM을 새롭게 받아 DOM을 업데이트하는 코드를 만들었습니다. 하지만 저희가 원하는 모습은 아래의 형태입니다.
 
 #### 이상적인 형태
 ```JAVASCRIPT
@@ -78,20 +78,20 @@ ReactDOM.render(
 
 여기서 우리는 두가지를 고민해야 합니다.
 
-1. 콤포넌트가 자체적으로 UI를 가지고 있어야 한다.
-2. 콤포넌트가 자체적으로 UI를 업데이트해야 한다.
+1. 컴포넌트가 자체적으로 UI를 가지고 있어야 한다.
+2. 컴포넌트가 자체적으로 UI를 업데이트해야 한다.
 
 어떻게 해야 할까요?
 
-일단, 저희는 지금 클래스콤포넌트와 함수형 콤포넌트의 차이를 잘 알고 있습니다. 현재 우리의 지식과 위의 코드 구상에선 함수형 콤포넌트로는 이상적인형태를 만들 수 없음을 알아야 합니다. 이제부터 우리는 __State__ 라는 것을 활용하여 콤포넌트에 생명력을 불어넣음과 동시에 클래스콤포넌트의 내부를 꼼꼼히 살펴보겠습니다.
+일단, 저희는 지금 클래스컴포넌트와 함수형 컴포넌트의 차이를 잘 알고 있습니다. 현재 우리의 지식과 위의 코드 구상에선 함수형 컴포넌트로는 이상적인형태를 만들 수 없음을 알아야 합니다. 이제부터 우리는 __State__ 라는 것을 활용하여 컴포넌트에 생명력을 불어넣음과 동시에 클래스컴포넌트의 내부를 꼼꼼히 살펴보겠습니다.
 
-_*지금은 클래스콤포넌트로 작성합니다. 후에 함수형 콤포넌트로 전환하도록 합니다._
+_*지금은 클래스컴포넌트로 작성합니다. 후에 함수형 컴포넌트로 전환하도록 합니다._
 
-#### 클래스 콤포넌트
+#### 클래스 컴포넌트
 ```JAVASCRIPT
-// 함수형 콤포넌트를 확장하기 위해 react에 내장된 es6문법을 사용하여 class로 전환합니다.
+// 함수형 컴포넌트를 확장하기 위해 react에 내장된 es6문법을 사용하여 class로 전환합니다.
 class Clock extends React.Component {
-  // render()라고 불리는 빈 메서드를 추가합니다. 클래스 콤포넌트를 작성할때 기본이 되는 틀입니다.
+  // render()라고 불리는 빈 메서드를 추가합니다. 클래스 컴포넌트를 작성할때 기본이 되는 틀입니다.
   render() {
     return (
       <div>
@@ -104,7 +104,7 @@ class Clock extends React.Component {
 }
 ```
 
-이제 과거의 함수형 콤포넌트는 클래스 콤포넌트로 전환되었습니다. 그러면서 __render__ 메서드를 갖게 되었는데, render 메서드는 업데이트가 발생할 때마다 호출되지만, 같은 DOM 노드로 <Clock />을 렌더링하는 경우 Clock 클래스의 단일 인스턴스만 사용됩니다. 이것은 로컬 state와 lyfecycle 메서드와 같은 부가적인 기능을 사용할 수 있게 해줍니다.
+이제 과거의 함수형 컴포넌트는 클래스 컴포넌트로 전환되었습니다. 그러면서 __render__ 메서드를 갖게 되었는데, render 메서드는 업데이트가 발생할 때마다 호출되지만, 같은 DOM 노드로 <Clock />을 렌더링하는 경우 Clock 클래스의 단일 인스턴스만 사용됩니다. 이것은 로컬 state와 lyfecycle 메서드와 같은 부가적인 기능을 사용할 수 있게 해줍니다.
 
 자, 그럼 state를 사용해 보겠습니다.
 
@@ -121,7 +121,7 @@ class Clock extends React.Component {
     return (
       <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2> {/*props를 state로 지정하여 콤포넌트내에서 제어할 수 있도록 합니다.*/}
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2> {/*props를 state로 지정하여 컴포넌트내에서 제어할 수 있도록 합니다.*/}
       </div>
     );
   }
@@ -142,7 +142,7 @@ class Clock extends React.Component {
     return (
       <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2> {/*props를 state로 지정하여 콤포넌트내에서 제어할 수 있도록 합니다.*/}
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2> {/*props를 state로 지정하여 컴포넌트내에서 제어할 수 있도록 합니다.*/}
       </div>
     );
   }
@@ -269,7 +269,7 @@ ReactDOM.render(
 ```
 
 > 다시 한번 복습해 보겠습니다.
-> 1. Clock 콤포넌트가 ReactDOM.render()로 전달되었을 때 React는 Clock 컴포넌트의 constructor를 호출합니다. Clock이 현재 시각을 표시해야 하기 때문에 현재 시각이 포함된 객체로 this.state를 초기화합니다. 나중에 이 state를 업데이트할 것입니다.
+> 1. Clock 컴포넌트가 ReactDOM.render()로 전달되었을 때 React는 Clock 컴포넌트의 constructor를 호출합니다. Clock이 현재 시각을 표시해야 하기 때문에 현재 시각이 포함된 객체로 this.state를 초기화합니다. 나중에 이 state를 업데이트할 것입니다.
 > 2. React는 Clock 컴포넌트의 render() 메서드를 호출합니다. 이를 통해 React는 화면에 표시되어야 할 내용을 알게 됩니다. 그 다음 React는 Clock의 렌더링 출력값을 일치시키기 위해 DOM을 업데이트합니다.
 > 3. Clock 출력값이 DOM에 삽입되면, React는 componentDidMount() 생명주기 메서드를 호출합니다. 그 안에서 Clock 컴포넌트는 매초 컴포넌트의 tick() 메서드를 호출하기 위한 타이머를 설정하도록 브라우저에 요청합니다.
 > 4. 매초 브라우저가 tick() 메서드를 호출합니다. 그 안에서 Clock 컴포넌트는 setState()에 현재 시각을 포함하는 객체를 호출하면서 UI 업데이트를 진행합니다. 
@@ -347,7 +347,7 @@ HTML에서 input, textarea, select와 같은 폼 엘리먼트는 일반적으로
 
 그리고 폼을 렌더링하는 React 컴포넌트는 폼에 발생하는 사용자 입력값을 제어합니다. 이러한 방식으로 React에 의해 값이 제어되는 입력 폼 엘리먼트를 “제어 컴포넌트 (controlled component)“라고 합니다.
 
-#### 예시 제어 콤포넌트
+#### 예시 제어 컴포넌트
 ```JAVASCRIPT
 class NameForm extends React.Component {
   constructor(props) {
@@ -526,12 +526,12 @@ class Reservation extends React.Component {
 
 전반적으로 input:text, textarea, select 모두 매우 비슷하게 동작합니다. 모두 제어 컴포넌트를 구현하는데 value 어트리뷰트를 허용합니다.
 
-_* input:file은 특수하게 비제어 콤포넌트입니다._
+_* input:file은 특수하게 비제어 컴포넌트입니다._
 
 >제어 컴포넌트의 대안
 데이터를 변경할 수 있는 모든 방법에 대해 이벤트 핸들러를 작성하고 React 컴포넌트를 통해 모든 입력 상태를 연결해야 하기 때문에 때로는 제어 컴포넌트를 사용하는 게 지루할 수 있습니다. 특히 기존의 코드베이스를 React로 변경하고자 할 때나 React가 아닌 라이브러리와 React 애플리케이션을 통합하고자 할 때 짜증날 수 있습니다. 이러한 경우에 입력 폼을 구현하기 위한 대체 기술인 비제어 컴포넌트를 확인할 수 있습니다.
 
-### 비제어 콤포넌트
+### 비제어 컴포넌트
 
 React에서 input:file은 프로그래밍적으로 값을 설정 할 수 없고 사용자만이 값을 설정할 수 있기때문에 항상 비제어 컴포넌트입니다.
 

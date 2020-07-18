@@ -1,15 +1,13 @@
 # 1장. javascripts
 
-***
-
 ## 1 - 1) 소개
 
 ### 자바스크립트는 다음과 같은 특징을 가집니다
 
-- JavaScript는 객체 기반의 언어입니다. 하지만 클래스개념은 없습니다.
-- JavaScript는 HTML에 연산 제어 등 프로그래밍적인 요소를 추가하고 클라이언트의 자원을 활용할 수 있게 합니다.
-- JavaScript는 인터프리터 언어로서 클라이언트의 웹 브라우저에 의해 해석되고 실행됩니다.
-- JavaScript는 HTML문서 내에 기술되고 HTML 문서와 함께 수행됩니다.
+- javascript는 객체 기반의 언어입니다. 하지만 클래스개념은 없습니다.
+- javascript는 HTML에 연산 제어 등 프로그래밍적인 요소를 추가하고 클라이언트의 자원을 활용할 수 있게 합니다.
+- javascript는 인터프리터 언어로서 클라이언트의 웹 브라우저에 의해 해석되고 실행됩니다.
+- javascript는 HTML문서 내에 기술되고 HTML 문서와 함께 수행됩니다.
 - 자바스크립트는 주로 웹 브라우저에서 사용되나, Node.js와 같은 프레임워크를 사용하면 서버 측 프로그래밍에서도 사용할 수 있습니다.
 - 언어 규격은 자바의 부분 집합(subset)으로 되어 있습니다만은 자바와는 다른 언어입니다.
 
@@ -38,19 +36,19 @@
 - 동적인 효과 이미지 롤오버 상태표시줄에 문자열표시 등등
 - 웹사이트의 기능적인 면 쿠키처리, 새로운 Window열기 등등
 
+<br/>
+
 ## 1 - 2) javascripts 개요
 
 #### 순수 자바스크립트의 함수 정의
 
-```javascript
+```JAVASCRIPT
 function nufynComeFunny() {
     document.getElementById("text").innerHTML = "Hello world!";
 }
 
 nufynComeFunny()
 ```
-
-<br/>
 
 #### html내에서 자바스크립트의 모습
 
@@ -99,7 +97,6 @@ _*그 밖에_
 # 1 - 4) javascripts 적용
 
 #### html에 텍스트 출력하기
-
 ```html
 <!DOCTYPE html>
 <html lang="ko">

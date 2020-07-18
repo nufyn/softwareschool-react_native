@@ -15,7 +15,7 @@ event처리에 관한 지식은 html과 자바스크립트에서 충분히 학�
 </button>
 ```
 
-```javascript
+```JAVASCRIPT
 <button onClick={activateLasers}>
   Activate Lasers
 </button>
@@ -29,7 +29,7 @@ event처리에 관한 지식은 html과 자바스크립트에서 충분히 학�
 </a>
 ```
 
-```javascript
+```JAVASCRIPT
  function handleClick(e) {
     e.preventDefault();
     console.log('The link was clicked.');
@@ -47,7 +47,7 @@ React를 사용할 때 DOM 엘리먼트가 생성된 후 리스너를 추가하�
 
 클래스 콤포넌트에서 보통은 이벤트 핸들러를 클래스의 메서드로 만듭니다. 예를 들어, 다음 Toggle 컴포넌트는 사용자가 “ON”과 “OFF” 상태를 토글 할 수 있는 버튼을 렌더링합니다.
 
-```javascript
+```JAVASCRIPT
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
@@ -85,7 +85,7 @@ React에서는 원하는 동작을 캡슐화하는 컴포넌트를 만들 수 �
 React에서 조건부 렌더링은 JavaScript에서의 조건 처리와 같이 동작하기 때문에 __if__ 나 __조건부 연산자(삼항 조건 연산자)__ 와 같은 JavaScript 연산자를 현재 상태를 나타내는 엘리먼트를 만드는 데에 사용하세요. 그러면 React는 현재 상태에 맞게 UI를 업데이트할 것입니다.
 
 #### 조건에 따라 콤포넌트를 다르게 렌더링
-```javascript
+```JAVASCRIPT
 function UserGreeting(props) {
   return <h1>Welcome back!</h1>;
 }
@@ -112,7 +112,7 @@ ReactDOM.render(
 이렇게 조건부 렌더링을 테스트해보았습니다. 로그인상태에 따라 다른 ui를 렌더링합니다.
 
 #### 심화
-```javascript
+```JAVASCRIPT
 class Login extends React.Component {
   constructor(props) {
     super(props);
