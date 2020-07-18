@@ -28,7 +28,6 @@
 | `encodeURI()` | URI에서 주소를 표시하는 특수문자를 제외하고, 모든 문자를 이스케이프 시퀀스(escape sequences) 처리하여 부호화합니다. |
 | `encodeURIComponent()` | URI에서 encodeURI() 함수에서 부호화하지 않은 모든 문자까지 포함하여 이스케이프 시퀀스 처리 |
 
-
 <br/>
 
 ***

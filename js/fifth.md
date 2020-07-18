@@ -59,14 +59,14 @@ document.write("배열 arr의 길이는 " + arr.length + "입니다.");       //
 
 ## 5 - 4) 배열 요소의 추가
 
-1. arr.push(추가할 요소);         // push() 메소드를 이용하는 방법
+1. arr.push(추가할 요소);         // push() 메서드를 이용하는 방법
 2. arr[arr.length] = 추가할 요소; // length 프로퍼티를 이용하는 방법
 3. arr[특정인덱스] = 추가할 요소; // 특정 인덱스를 지정하여 추가하는 방법
 
 ```javascript
 var arr = [1, true, "Java"];
 
-arr.push("Script");           // push() 메소드를 이용하는 방법
+arr.push("Script");           // push() 메서드를 이용하는 방법
 
 document.write(arr + "<br>"); // 1,true,Java,Script
 
@@ -106,7 +106,7 @@ document.write(result);
 ## 5 - 6) Array 객체
 
 자바스크립트에서 배열(array)은 정렬된 값들의 집합으로 정의되며, Array 객체로 다뤄집니다.
-또한, 자바스크립트는 사용자가 배열과 관련된 작업을 손쉽게 할 수 있도록 다양한 메소드도 제공하고 있습니다.
+또한, 자바스크립트는 사용자가 배열과 관련된 작업을 손쉽게 할 수 있도록 다양한 메서드도 제공하고 있습니다.
 
 #### 배열과 배열요소의 타입
 ```javascript
@@ -123,9 +123,9 @@ document.write(typeof arr[2]);            // boolean
 
 _*자바스크립트에서는 배열이라는 타입(type)을 별도로 제공하지 않습니다.<br/> 자바스크립트 배열은 객체(object) 타입이 되며, typeof 연산자를 사용하면 'object'를 반환합니다._
 
-### Array객체의 메소드
+### Array객체의 메서드
 
-| 메소드 | 설명 | 비고 |
+| 메서드 | 설명 | 비고 |
 |:---:|:---:|:---:|
 | Array.isArray() | 전달받은 값이 Array 객체인지 아닌지를 검사합니다 |
 | Array.from() | 다음 객체들을 배열처럼 변환시켜 줍니다. | ECMAScript 6부터 추가됨. |

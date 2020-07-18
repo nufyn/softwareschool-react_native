@@ -156,7 +156,7 @@ while 문 내부에 표현식의 결과를 변경하는 실행문이 존재하�
 
 ```javascript
 for (var i = 1; i < 10; i++) {
-    document.write(i + "<br>");
+    document.write(i + " ");
 }
 ```
 
@@ -207,15 +207,10 @@ var lectures = ["html", "css", "자바스크립트", "php"];
 var topic = "자바스크립트";
 
 for (var i = 0; i < lectures.length; i++) {
-
     if (lectures[i] == topic) {
-
         document.write(topic + " 과목은 " + (i + 1) + "번째 과목입니다.");
-
         break; // 원하는 값을 찾은 후에는 더 이상 for 문을 반복하지 않고 빠져나감.
-
     }
-
 }
 ```
 

@@ -195,26 +195,79 @@ ReactDOM.render(
 ```
 React.createElement를 짧은 변수에 할당하면 편리하게 JSX 없이 React를 사용할 수 있습니다.
 
-## 1 - 2) 핵심 구성요소
+#### jsx Fragment
+
+부모 자식 콤포넌트 사이에 기존의 html모습과 맞지않는 형태가 생겨날 수 있습니다.
+
+```javascript
+class Columns extends React.Component {
+  render() {
+    return (
+      // jsx규칙에 의해 삽입된 필요없는 태그
+      <div> 
+        <td>Hello</td>
+        <td>World</td>
+      </div>
+    );
+  }
+}
+class Table extends React.Component {
+  render() {
+    return (
+      <table>
+        <tr>
+          <Columns />
+        </tr>
+      </table>
+    );
+  }
+}
+// 이러면 table 사이에 필요없는 div가 들어가게 됩니다.
+```
 
 
+<br/>
+
+## 1 - 2) element
+
+엘리먼트는 react에서 가장 작은 단위입니다.
+
+```javascript
+const element = <h1>Hello, world</h1>;
+```
+
+브라우저 DOM 엘리먼트와 달리 React 엘리먼트는 일반 객체이며(plain object) 쉽게 생성할 수 있습니다.
+
+#### 엘리먼트 렌더링
+```javascript
+<div id="root"></div>
+
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+```
+
+React 엘리먼트는 불변객체입니다. 한번 렌더링된 엘리먼트는 실제로는 업데이트 되지 않습니다. 그렇다면 react는 어떻게 페이지를 업데이트 할까요?
+
+#### 엘리먼트 업데이트
+```javascript 
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+```
+
+엘리먼트는 영화에서 하나의 프레임과 같이 특정 시점의 UI를 보여줍니다. 즉, React DOM은 해당 엘리먼트와 그 자식 엘리먼트를 이전의 엘리먼트와 비교하고 DOM을 원하는 상태로 만드는데 필요한 경우에만 DOM을 업데이트합니다.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+_*여기서 주의할 점이 있습니다.
+components 와 element를 혼동하지 맙시다. 엘리먼트는 컴포넌트의 “구성 요소”입니다.
+다음장에서 콤포넌트에 대해서 알아봅시다._
 
 ***
