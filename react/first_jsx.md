@@ -89,9 +89,12 @@ _*JSX는 HTML보다는 JavaScript에 가깝기 때문에, React DOM은 HTML 어�
 
 ### JSX로 자식 정의
 태그가 비어있다면 XML처럼 /> 를 이용해 바로 닫아주어야 합니다.
-
+```JAVASCRIPT
 const element = <img src={user.avatarUrl} />;
+```
+
 JSX 태그는 자식을 포함할 수 있습니다.
+
 ```JAVASCRIPT
 const element = (
   <div>
@@ -223,6 +226,33 @@ class Table extends React.Component {
 // 이러면 table 사이에 필요없는 div가 들어가게 됩니다.
 ```
 
+그럴때 사용하는 것이 Fragment입니다.
+
+```JAVASCRIPT
+class Columns extends React.Component {
+  render() {
+    return (
+      //jsx규칙을 지키기위해 만들어진 Fragment는 아무의미가 없는 태그입니다. <> </> 
+      <React.Fragment> 
+        <td>Hello</td>
+        <td>World</td>
+      </React.Fragment>
+    );
+  }
+}
+class Table extends React.Component {
+  render() {
+    return (
+      <table>
+        <tr>
+          <Columns />
+        </tr>
+      </table>
+    );
+  }
+}
+// 이러면 <tr>태그 밑에 바로 <td>가 옵니다
+```
 
 <br/>
 
@@ -261,8 +291,9 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-엘리먼트는 영화에서 하나의 프레임과 같이 특정 시점의 UI를 보여줍니다. 즉, React DOM은 해당 엘리먼트와 그 자식 엘리먼트를 이전의 엘리먼트와 비교하고 DOM을 원하는 상태로 만드는데 필요한 경우에만 DOM을 업데이트합니다.
+![tick](../../제목없음.png)
 
+엘리먼트는 영화에서 하나의 프레임과 같이 특정 시점의 UI를 보여줍니다. 즉, React DOM은 해당 엘리먼트와 그 자식 엘리먼트를 이전의 엘리먼트와 비교하고 DOM을 원하는 상태로 만드는데 필요한 경우에만 DOM을 업데이트합니다.
 
 _*여기서 주의할 점이 있습니다.
 components 와 element를 혼동하지 맙시다. 엘리먼트는 컴포넌트의 “구성 요소”입니다.

@@ -1,27 +1,6 @@
 # ReactNative 
 
-## 1 - 1) 리액트 네이티브는 Reactjs와 달리 css가 없습니다.
-
-ReactNative는 프레임워크라는 특성때문에 자유도가 높지 못합니다. 바로 규격이 있다는 것입니다. React에서는 html의 모든 태그를 다 사용하고, css는 물론, scss까지 사용이 가능했었는데, ReactNative는 전혀 그렇지 못합니다. 사용할 수 있는 건 View와 Text, 그리고 inline styling뿐이죠. 대신 ReactNative에는 엄청나게 많고 훌륭한 Component들과 API들이 있습니다. 그들 덕분에 쉽고 예쁘게 뷰를 렌더링할 수 있습니다.
-
-#### inline style
-```JAVASCRIPT
-import { StyleSheet } from 'react-native'; 
-
-const styles = StyleSheet.create({
-  textStyle: {
-    fontSize: 20,
-  },
-  otherStyle: {
-    position: 'absolute',
-    justifyContent: 'center',
-  }
-});
-```
-
-css가 없어짐과 동시에 html에 클래스속성이 사라집니다. 그리하여 사람들은 동적으로 요소들을 컨트롤할 수 있는 다른 속성이 필요했고, 그로인해 구조가 조금씩 React와 달라지기 시작합니다. 그로인해 앱의 구상/설계 단계에서 부터 React와 다른 길을 걷게 됩니다.
-
-## 1 - 2) CoreComponents
+## 1 - 1) CoreComponents
 
 ### View
 
@@ -42,3 +21,233 @@ Text 컴포넌트는 html의 p를 대신하는 컴포넌트입니다. 주로 하
 |`<Image>`|`<ViewGroup>`|`<UIView>`|`<div>`|다양한 유형의 이미지를 표시합니다.|
 
 ***
+
+## 2 - 2) View 
+
+실습겸 프로젝트 뷰를 만들어 보도록 하겠습니다. 코어컴포넌트만 이용해 간단하게 만들어 보겠습니다.
+
+```JAVASCRIPT
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>제목</Text>
+      <Text>작성자 혹은 기자</Text>
+      <Text>날짜</Text>
+      <Text>
+        내용
+            </Text>
+      <Text>출처</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+```
+
+<img src="./1.jpg" width="30%" height="">
+
+자, 이제 스타일을 입혀봅시다. style은 Styles라고 하는 react-native 자체 API를 사용해서 스타일만을 가진 컴포넌트로 작성해야 합니다.
+
+#### 스타일만을 가진 컴포넌트
+```JAVASCRIPT
+const styles = StyleSheet.create({
+  cardWrap: {
+    ...Platform.select({
+      ios: {// ios 그림자
+        shadowColor: "#000",
+        shadowOffset: { width: 0.2, height: 0.5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 1,
+      },
+      android: {//안드로이드 그림자
+        elevation: 4
+      },
+    }),
+    backgroundColor: "white",
+    margin: 8,
+    marginTop: 30,
+    borderRadius: 6,
+  },
+  textWrap: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    marginHorizontal: 8,
+    marginVertical: 6,
+  },
+  title: {
+    marginHorizontal: 8,
+    marginVertical: 18,
+    color: "black",
+    fontSize: 20,
+    fontWeight: "800"
+  },
+  description: {
+    marginHorizontal: 8,
+    marginVertical: 8,
+    color: "gray",
+    fontSize: 18
+  },
+  image: {
+    height: 160,
+    marginHorizontal: 8,
+    marginVertical: 6
+  },
+  author: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    fontSize: 14,
+    color: "gray"
+  },
+  date: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    textAlign: "right",
+    fontSize: 14,
+    color: "gray"
+  },
+  source: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    textAlign: "right",
+    fontSize: 14,
+    color: "gray"
+  }
+```
+
+자, 실습을 해봅시다. 위의 스타일링 예제를 따라가셔도 되고, 새롭게 만들어 보셔도 됩니다.
+
+```JAVASCRIPT
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.cardWrap}>
+      <Text style={styles.title}>제목</Text>
+      <Text style={styles.author}>작성자 혹은 기자</Text>
+      <Text style={styles.date}>날짜</Text>
+      <Text style={styles.description} numberOfLines={3}>
+        기사 내용을 길게 쓰면 어떻게 되나요? numberOfLines={3}의 의미는 Text내부의 children의 길이를 width에 맞춰 3줄로 잘라내는 역할을 합니다.
+            </Text>
+      <Text style={styles.source}>출처</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  cardWrap: {
+    ...Platform.select({
+      ios: {// ios 그림자
+        shadowColor: "#000",
+        shadowOffset: { width: 0.2, height: 0.5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 1,
+      },
+      android: {//안드로이드 그림자
+        elevation: 4
+      },
+    }),
+    backgroundColor: "white",
+    margin: 8,
+    marginTop: 30,
+    borderRadius: 6,
+  },
+  textWrap: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    marginHorizontal: 8,
+    marginVertical: 6,
+  },
+  title: {
+    marginHorizontal: 8,
+    marginVertical: 18,
+    color: "black",
+    fontSize: 20,
+    fontWeight: "800"
+  },
+  description: {
+    marginHorizontal: 8,
+    marginVertical: 8,
+    color: "gray",
+    fontSize: 18
+  },
+  image: {
+    height: 160,
+    marginHorizontal: 8,
+    marginVertical: 6
+  },
+  author: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    fontSize: 14,
+    color: "gray"
+  },
+  date: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    textAlign: "right",
+    fontSize: 14,
+    color: "gray"
+  },
+  source: {
+    marginHorizontal: 8,
+    marginVertical: 6,
+    textAlign: "right",
+    fontSize: 14,
+    color: "gray"
+  }
+});
+```
+
+<img src="./2.jpg"  width="30%" height="">
+
+이렇게 스타일이 들어가 예쁜 카드가 만들어 졌습니다.
+
+저 카드를 재사용하기 위해서는 컴포넌트로 추출해서 쓰면 편하겠죠?
+
+```JAVASCRIPT
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+
+// 컴포넌트를 추출해서 써보세요.
+
+export default function App() {
+  return (
+    <ScrollView> {/*ScrollView는 모바일 디바이스에서 overflow된 데이터에 맞게 scroll이 가능하게 해줍니다.*/}
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({  
+      ...
+});
+
+```
+
+<br/>
+
+#### 이렇게 나오면 성공입니다!
+<img src="./3.jpg" width="30%" height="">
+
+View에 대한 이해가 조금 되시나요? 다음 장에서도 이어서 데이터를 넣는 방법과 좀 더 이뻐진 styling자료로 저희 프로젝트를 디벨롭해보겠습니다.

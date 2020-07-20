@@ -48,7 +48,7 @@ React를 사용할 때 DOM 엘리먼트가 생성된 후 리스너를 추가하�
 클래스 콤포넌트에서 보통은 이벤트 핸들러를 클래스의 메서드로 만듭니다. 예를 들어, 다음 Toggle 컴포넌트는 사용자가 “ON”과 “OFF” 상태를 토글 할 수 있는 버튼을 렌더링합니다.
 
 ```JAVASCRIPT
-class Toggle extends React.Component {
+export default class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isToggleOn: true};
@@ -77,6 +77,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+![1](3.jpg)
 
 ## 4 - 2) 조건부 렌더링
 

@@ -81,7 +81,7 @@ function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 
-function App() {
+export default function App() {
   return (
     <div>
       <Welcome name="Sara" /> {/* <h1>Hello, Sara</h1> */}
@@ -97,6 +97,8 @@ ReactDOM.render(
 );
 ```
 
+![1](./4.jpg)
+
 >일반적으로 새 React 앱은 최상위에 단일 App 컴포넌트를 가지고 있습니다. 하지만 기존 앱에 React를 통합하는 경우에는 Button과 같은 작은 컴포넌트부터 시작해서 뷰 계층의 상단으로 올라가면서 점진적으로 작업해야 할 수 있습니다.
 
 <br/>
@@ -105,7 +107,7 @@ ReactDOM.render(
 
 프로젝트 중간중간 컴포넌트로 묶여있지만 구성요소마다 재사용을 또 해야할지도 모릅니다. 또, 컴포넌트내에 중첩된 요소와 중첩되지 말아야할 요소를 나뉘어야할 수 도 있습니다.
 
-다른 웹사이트에서 코드 한 구절을 가져와 예시로 보겠습니다.
+다른 웹사이트에서 코드 한 구절을 가져와 예시로 보겠습니다. 실행은 되지 않습니다.
 
 ```JAVASCRIPT
 function Comment(props) {

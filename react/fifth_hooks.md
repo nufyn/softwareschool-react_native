@@ -15,7 +15,7 @@ Hook은 함수 컴포넌트에서 React state와 생명주기 기능(lifecycle f
 ```javascript
 import React, { useState } from 'react';
 
-function Example() {
+export default function Example() {
   // "count"라는 새로운 상태 값을 정의합니다.
   const [count, setCount] = useState(0);
 
@@ -29,6 +29,9 @@ function Example() {
   );
 }
 ```
+
+![1](./2.jpg)
+
 >주의
 React 16.8.0은 Hook를 지원하는 첫 번째 배포입니다. 업그레이드 할 때 React DOM을 포함한 모든 패키지를 업데이트 하는 것을 잊지 마세요. React Native는 v0.59부터 Hook을 지원합니다.
 
@@ -71,7 +74,7 @@ React 16.8.0은 Hook를 지원하는 첫 번째 배포입니다. 업그레이드
 ```javascript
 import React, { useState } from 'react';
 
-function Example() {
+export default function Example() {
   // "count"라는 새 상태 변수를 선언합니다
   const [count, setCount] = useState(0);
 
@@ -90,7 +93,7 @@ _*기본적으로 react에 내장된 state와 이번에 새롭게 추가된 useS
 
 #### class 콤포넌트의 경우
 ```javascript
-class Example extends React.Component {
+export default class Example extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,7 +142,7 @@ React class의 componentDidMount 나 componentDidUpdate, componentWillUnmount와
 ```javascript
 import React, { useState, useEffect } from 'react';
 
-function Example() {
+export default function Example() {
   const [count, setCount] = useState(0);
 
   // componentDidMount, componentDidUpdate와 비슷합니다
@@ -169,7 +172,7 @@ Effect를 “해제”할 필요가 있다면, 해제하는 함수를 반환해�
 ```javascript
 import React, { useState, useEffect } from 'react';
 
-function FriendStatus(props) {
+export default function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
 
   function handleStatusChange(status) {
@@ -194,7 +197,7 @@ function FriendStatus(props) {
 ```javascript
 import React, { useState, useEffect } from 'react';
 
-function FriendStatusWithCounter(props) {
+export default function FriendStatusWithCounter(props) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     document.title = `You clicked ${count} times`;

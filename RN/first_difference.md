@@ -65,4 +65,26 @@ const WelcomeScreen = () =>
 
 _*이 외에도 styling과 사용가능한 ribrary의 종류등이 다릅니다._
 
+
+## 1 - 3) 리액트 네이티브는 Reactjs와 달리 css가 없습니다.
+
+ReactNative는 프레임워크라는 특성때문에 자유도가 높지 못합니다. 바로 규격이 있다는 것입니다. React에서는 html의 모든 태그를 다 사용하고, css는 물론, scss까지 사용이 가능했었는데, ReactNative는 전혀 그렇지 못합니다. 사용할 수 있는 건 View와 Text, 그리고 inline styling뿐이죠. 대신 ReactNative에는 엄청나게 많고 훌륭한 Component들과 API들이 있습니다. 그들 덕분에 쉽고 예쁘게 뷰를 렌더링할 수 있습니다.
+
+#### inline style
+```JAVASCRIPT
+import { StyleSheet } from 'react-native'; 
+
+const styles = StyleSheet.create({
+  textStyle: {
+    fontSize: 20,
+  },
+  otherStyle: {
+    position: 'absolute',
+    justifyContent: 'center',
+  }
+});
+```
+
+css가 없어짐과 동시에 html에 클래스속성이 사라집니다. 그리하여 사람들은 동적으로 요소들을 컨트롤할 수 있는 다른 속성이 필요했고, 그로인해 구조가 조금씩 React와 달라지기 시작합니다. 그로인해 앱의 구상/설계 단계에서 부터 React와 다른 길을 걷게 됩니다.
+
 ***
