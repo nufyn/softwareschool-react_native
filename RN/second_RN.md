@@ -40,3 +40,5 @@ Text 컴포넌트는 html의 p를 대신하는 컴포넌트입니다. 주로 하
 |`<Text>`|`<ViewGroup>`|`<UIView>`|`<div>`|텍스트의 표시, 스타일 및 중첩 문자열과 터치 이벤트 처리|
 |`<TextInput>`|`<ViewGroup>`|`<UIView>`|`<div>`|사용자가 텍스트를 입력할 수 있습니다.|
 |`<Image>`|`<ViewGroup>`|`<UIView>`|`<div>`|다양한 유형의 이미지를 표시합니다.|
+
+***
