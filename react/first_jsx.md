@@ -29,6 +29,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+가독성을 좋게 하기 위해 JSX를 여러 줄로 나눴습니다. 필수는 아니지만, 이 작업을 수행할 때 자동 세미콜론 삽입을 피하고자 괄호로 묶는 것을 권장합니다.
+
 ```JAVASCRIPT
 function formatName(user) {
   return user.firstName + ' ' + user.lastName;
@@ -51,7 +54,7 @@ ReactDOM.render(
 );
 ```
 
-가독성을 좋게 하기 위해 JSX를 여러 줄로 나눴습니다. 필수는 아니지만, 이 작업을 수행할 때 자동 세미콜론 삽입을 피하고자 괄호로 묶는 것을 권장합니다.
+
 
 <br/>
 
@@ -154,7 +157,7 @@ const element = {
 ### JSX 없이 사용하는 React
 React를 사용할 때 JSX는 필수가 아닙니다. 빌드 환경에서 컴파일 설정을 하고 싶지 않을 때 JSX 없이 React를 사용하는 것은 특히 편리합니다.
 
-각 JSX 엘리먼트는 React.createElement(component, props, ...children)를 호출하기 위한 문법 설탕입니다. 그래서 JSX로 할 수 있는 모든 것은 순수 JavaScript로도 할 수 있습니다.
+각 JSX 엘리먼트는 React.createElement(component, props, ...children)를 호출하기 위한 문법입니다. 그래서 JSX로 할 수 있는 모든 것은 순수 JavaScript로도 할 수 있습니다.
 
 예를 들어 다음의 JSX로 작성된 코드는
 ```JAVASCRIPT
@@ -291,7 +294,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-![tick](../../제목없음.png)
+![tick](./1.png)
 
 엘리먼트는 영화에서 하나의 프레임과 같이 특정 시점의 UI를 보여줍니다. 즉, React DOM은 해당 엘리먼트와 그 자식 엘리먼트를 이전의 엘리먼트와 비교하고 DOM을 원하는 상태로 만드는데 필요한 경우에만 DOM을 업데이트합니다.
 

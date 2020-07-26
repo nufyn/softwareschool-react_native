@@ -9,12 +9,14 @@ event처리에 관한 지식은 html과 자바스크립트에서 충분히 학�
 - React의 이벤트는 소문자 대신 캐멀 케이스(camelCase)를 사용합니다.
 - JSX를 사용하여 문자열이 아닌 함수로 이벤트 핸들러를 전달합니다.
 
+#### js
 ```html
 <button onclick="activateLasers()">
   Activate Lasers
 </button>
 ```
 
+#### React
 ```JAVASCRIPT
 <button onClick={activateLasers}>
   Activate Lasers
@@ -165,7 +167,7 @@ javascript와 react에서는 어떻게 쓰이는 지 먼저 보겠습니다.
 #### javascript
 ```JAVASCRIPT
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map((number) => number);
+const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
 
@@ -292,6 +294,34 @@ ReactDOM.render(
 ```
 
 _*경험상 map() 함수 내부에 있는 엘리먼트에 key를 넣어 주는 게 좋습니다._
+
+#### 컴포넌트를 이용해서 두배로 구성된 배열값 리턴
+```javascript
+function ListItem(props) {
+  const doubled = props.value * 2
+  console.log(doubled)
+  return <li>{doubled}</li>;
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    < ListItem key={number.toString()}
+      value={number} />
+  );
+  return (
+    <ul>
+      {listItems}
+    </ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+```
 
 ### Key는 형제 사이에서만 고유한 값이어야 한다.
 
